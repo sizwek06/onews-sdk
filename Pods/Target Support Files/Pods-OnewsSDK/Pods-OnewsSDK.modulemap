@@ -1,0 +1,6 @@
+framework module Pods_OnewsSDK {
+  umbrella header "Pods-OnewsSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}
