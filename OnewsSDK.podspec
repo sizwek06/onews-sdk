@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "OnewsSDK"
-  spec.version      = "0.0.1"
+  spec.version      = "0.1.0"
   spec.summary      = "The framework will allow the app to grab API mandatory requests details to get news articles."
 
   # This description is used to generate tags and improve search results.
