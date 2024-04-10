@@ -8,25 +8,25 @@
 import Foundation
 
 // MARK: - NewsArticle
-struct NewsArticle: Codable {
+public struct NewsArticle: Codable {
     var status: String
     var totalResults: Int
     var articles: [Article]
 }
 
 // MARK: - Article
-struct Article: Codable {
-    var source: Source
-    var author: String?
-    var title: String
-    var description: String?
-    var url: String
-    var urlToImage: String?
-    var publishedAt: String
-    var content: String?
-    var uuid: String?
+public struct Article: Codable {
+    public var source: Source
+    public var author: String?
+    public var title: String
+    public var description: String?
+    public var url: String
+    public var urlToImage: String?
+    public var publishedAt: String
+    public var content: String?
+    public var uuid: String?
     
-    private enum ArticleCodingKeys: CodingKey {
+    public enum ArticleCodingKeys: CodingKey {
             case source
             case author
             case title
@@ -38,7 +38,7 @@ struct Article: Codable {
             case uuid
         }
 
-        init(from decoder: Decoder, uuid: String?) throws {
+        public init(from decoder: Decoder, uuid: String?) throws {
             let container = try decoder.container(keyedBy: ArticleCodingKeys.self)
             self.source = try container.decode(Source.self, forKey: .source)
             self.author = try? container.decode(String.self, forKey: .author)
@@ -53,7 +53,7 @@ struct Article: Codable {
 }
 
 // MARK: - Source
-struct Source: Codable {
-    var id: String?
-    var name: String
+public struct Source: Codable {
+    public var id: String?
+    public var name: String
 }

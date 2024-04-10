@@ -9,8 +9,12 @@ import Foundation
 
 open class ArticleRequest {
     
-    func performGetArticlesRequest(with urlString: String,
-                                   _ completion: @escaping (_ result: Result<[Article], Error>) -> Void) {
+    public init() {}
+    
+    public typealias FetchArticlesHandler = (_ result: Result<[Article], Error>) -> Void
+    
+    public func performGetArticlesRequest(with urlString: String,
+                                   _ completion: @escaping FetchArticlesHandler) {
         
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
