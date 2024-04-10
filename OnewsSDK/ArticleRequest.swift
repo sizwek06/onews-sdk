@@ -7,7 +7,7 @@
 
 import Foundation
 
-open class ArticleRequest {
+open class ArticleRequest: OnewsArticleProtocol {
     
     public init() {}
     
@@ -47,4 +47,9 @@ open class ArticleRequest {
             return []
         }
     }
+}
+
+public protocol OnewsArticleProtocol {
+    func performGetArticlesRequest(with urlString: String,
+                                   _ completion: @escaping (_ result: Result<[Article], Error>) -> Void)
 }
