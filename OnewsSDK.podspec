@@ -76,7 +76,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/sizwek06/onews-sdk.git", :tag => "0.0.1" }
+  spec.source       = { :git => "https://github.com/sizwek06/onews-sdk.git", :tag => "0.1.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,7 +89,7 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "OnewsSDK/"
   spec.exclude_files = "Classes/Exclude"
-
+  spec.swift_versions = "5.0"
   # spec.public_header_files = "Classes/**/*.h"
 
 
