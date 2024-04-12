@@ -55,5 +55,5 @@ public struct Article: Codable {
 // MARK: - Source
 public struct Source: Codable {
     public var id: String?
-    public var name: String
+    public var name: String?
 }
