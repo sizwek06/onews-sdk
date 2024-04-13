@@ -114,7 +114,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.framework  = "UIKit"
-  # spec.frameworks = "SomeFramework", "AnotherFramework"
+  spec.framework = "FirebaseFirestore"
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"

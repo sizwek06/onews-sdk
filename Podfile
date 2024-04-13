@@ -6,6 +6,6 @@ target 'OnewsSDK' do
   use_frameworks!
 
   # Pods for OnewsSDK
-  pod 'FirebaseFirestoreSwift'
+  pod 'FirebaseFirestore'
   
 end
