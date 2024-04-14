@@ -10,6 +10,7 @@
 		2821D50C2BC5409500D1C075 /* OnewsSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 2821D50B2BC5409500D1C075 /* OnewsSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2821D5132BC540B100D1C075 /* NewsArticleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821D5122BC540B100D1C075 /* NewsArticleData.swift */; };
 		2821D5152BC540BE00D1C075 /* ArticleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821D5142BC540BE00D1C075 /* ArticleRequest.swift */; };
+		284BB44E2BCC0F6800D6D369 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 284BB44D2BCC0F6800D6D369 /* FirebaseFirestoreSwift */; };
 		289943BA2BCB05D6001CD17F /* OnewsFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289943B92BCB05D6001CD17F /* OnewsFirestore.swift */; };
 		289943BE2BCBEBCC001CD17F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 289943BD2BCBEBCC001CD17F /* FirebaseAnalytics */; };
 		289943C02BCBEBCC001CD17F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 289943BF2BCBEBCC001CD17F /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -48,6 +49,7 @@
 				289943CC2BCBEBCC001CD17F /* FirebaseAuthCombine-Community in Frameworks */,
 				289943C22BCBEBCC001CD17F /* FirebaseAnalyticsSwift in Frameworks */,
 				289943C42BCBEBCC001CD17F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				284BB44E2BCC0F6800D6D369 /* FirebaseFirestoreSwift in Frameworks */,
 				289943BE2BCBEBCC001CD17F /* FirebaseAnalytics in Frameworks */,
 				289943C02BCBEBCC001CD17F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				289943C62BCBEBCC001CD17F /* FirebaseAppCheck in Frameworks */,
@@ -152,6 +154,7 @@
 				289943D12BCBEBCC001CD17F /* FirebaseDatabaseSwift */,
 				289943D32BCBEBCC001CD17F /* FirebaseDynamicLinks */,
 				289943D52BCBEBCC001CD17F /* FirebaseFirestore */,
+				284BB44D2BCC0F6800D6D369 /* FirebaseFirestoreSwift */,
 			);
 			productName = OnewsSDK;
 			productReference = 2821D5082BC5409500D1C075 /* OnewsSDK.framework */;
@@ -471,6 +474,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		284BB44D2BCC0F6800D6D369 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 289943BC2BCBEBCC001CD17F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		289943BD2BCBEBCC001CD17F /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 289943BC2BCBEBCC001CD17F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

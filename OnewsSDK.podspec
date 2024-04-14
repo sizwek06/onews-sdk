@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "OnewsSDK"
-  spec.version      = "0.2.0"
+  spec.version      = "0.3.0"
   spec.summary      = "The framework will allow the app to grab API mandatory requests details to get news articles."
 
   # This description is used to generate tags and improve search results.
@@ -114,7 +114,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.framework  = "UIKit"
-  spec.framework = "FirebaseFirestore"
+  spec.framework = "FirebaseFirestoreSwift"
+  spec.framework = "FirebaseFirestoreInternal"
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
