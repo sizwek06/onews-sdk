@@ -3,7 +3,7 @@ platform :ios, '16.0'
 use_frameworks!
 
 def third_party_libraries_source
-  pod 'FirebaseFirestore'
+  pod 'FirebaseFirestoreSwift'
 end
 
 target 'OnewsSDK' do
