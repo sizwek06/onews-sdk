@@ -11,6 +11,8 @@ import FirebaseFirestoreInternal
 
 open class OnewsFirestore {
     
+    public init() {}
+    
     public func saveNewsArticle(using newsArticle: Article, userUID: String, completion: @escaping (Error?) -> Void) {
         do {
             var dbArticle = newsArticle
