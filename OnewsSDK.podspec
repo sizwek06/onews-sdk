@@ -37,7 +37,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = { :type => 'MIT', :file => 'LICENSE' }
+  spec.license      = { :type => 'MIT', :file => 'OnewsSDK/LICENSE.txt' }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -76,7 +76,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/sizwek06/onews-sdk.git", :tag => "0.2.0" }
+  spec.source       = { :git => "https://github.com/sizwek06/onews-sdk.git", :tag => "0.3.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -114,9 +114,6 @@ Pod::Spec.new do |spec|
   #
 
   spec.framework  = "UIKit"
-  spec.framework = "FirebaseFirestoreSwift"
-  spec.framework = "FirebaseFirestoreInternal"
-
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
 
@@ -127,9 +124,13 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  spec.requires_arc = true
+  spec.requires_arc = true	
+  spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
+  spec.dependency "FirebaseFirestoreSwift"
+  spec.dependency "FirebaseFirestore"
 
 end

@@ -9,9 +9,23 @@ import Foundation
 import FirebaseFirestoreSwift
 import FirebaseFirestoreInternal
 
-class OnewsFirestore {
+open class OnewsFirestore {
     
-    func queryUserArticles(using query: Query, completion: @escaping ([Article]?, Error?) -> Void) {
+    public func saveNewsArticle(using newsArticle: Article, userUID: String, completion: @escaping (Error?) -> Void) {
+        do {
+            var dbArticle = newsArticle
+            dbArticle.uuid = userUID
+            
+            try Firestore.firestore().collection("newsArticle")
+                .document()
+                .setData(from: dbArticle)
+            completion(nil)
+            } catch {
+                completion(error)
+        }
+    }
+    
+    public func queryUserArticles(using query: Query, completion: @escaping ([Article]?, Error?) -> Void) {
         var articlesArray = [Article]()
         
         query.getDocuments { (snapshot, error) in
@@ -31,11 +45,9 @@ class OnewsFirestore {
         }
     }
     
-    func deleteUserArticles(_ query: Query, completion: @escaping (Error?) -> Void) {
+    public func deleteUserArticles(_ query: Query, completion: @escaping (Error?) -> Void) {
         
-        query.getDocuments { [weak self] (querySnapshot, err) in
-           
-        guard let self else { return }
+        query.getDocuments { (querySnapshot, err) in
                 
           if let err = err {
               completion(err)
