@@ -18,7 +18,7 @@ open class OnewsFirestore {
             var dbArticle = newsArticle
             dbArticle.uuid = userUID
             
-            try Firestore.firestore().collection("newsArticle")
+            try Firestore.firestore().collection("newsArticles")
                 .document()
                 .setData(from: dbArticle)
             completion(nil)
