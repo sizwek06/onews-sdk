@@ -9,9 +9,11 @@ import Foundation
 import FirebaseFirestoreSwift
 import FirebaseFirestoreInternal
 
-open class OnewsFirestore {
+open class OnewsFirestore: OnewsFirestoreProtocol {
     
     public init() {}
+    
+    public typealias FirestoreErrorHandler = (Error?) -> Void
     
     public func saveNewsArticle(using newsArticle: Article, userUID: String, completion: @escaping (Error?) -> Void) {
         do {
@@ -47,7 +49,7 @@ open class OnewsFirestore {
         }
     }
     
-    public func deleteUserArticles(_ query: Query, completion: @escaping (Error?) -> Void) {
+    public func deleteUserArticles(_ query: Query, completion: @escaping FirestoreErrorHandler) {
         
         query.getDocuments { (querySnapshot, err) in
                 
@@ -61,4 +63,10 @@ open class OnewsFirestore {
           }
         }
     }
+}
+
+public protocol OnewsFirestoreProtocol {
+    func saveNewsArticle(using newsArticle: Article, userUID: String, completion: @escaping (Error?) -> Void)
+    func queryUserArticles(using query: Query, completion: @escaping ([Article]?, Error?) -> Void)
+    func deleteUserArticles(_ query: Query, completion: @escaping (Error?) -> Void)
 }

@@ -7,11 +7,11 @@
 
 import Foundation
 
-// MARK: - NewsArticle
-public struct NewsArticle: Codable {
-    var status: String
-    var totalResults: Int
-    var articles: [Article]
+// MARK: - NewsArticleResponse
+public struct NewsArticleResponse: Codable {
+    public var status: String
+    public var totalResults: Int
+    public var articles: [Article]
 }
 
 // MARK: - Article

@@ -11,24 +11,23 @@ open class ArticleRequest: OnewsArticleProtocol {
     
     public init() {}
     
-    public typealias FetchArticlesHandler = (_ result: Result<[Article], Error>) -> Void
+    public typealias PerformNewsAPIRequestHandler = (_ result: Result<Data, Error>) -> Void
+    public typealias FetchArticlesHandler = (_ result: NewsArticleResponse?, _ error: Error?) -> Void
     
-    public func performGetArticlesRequest(with urlString: String,
-                                   _ completion: @escaping FetchArticlesHandler) {
+    public func performNewsAPIRequest(with urlString: String,
+                                   _ completion: @escaping PerformNewsAPIRequestHandler) {
         
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
             
-            let task = session.dataTask(with: url) { [weak self] (data, _, error) in
-                
-                guard let self else { return }
+            let task = session.dataTask(with: url) { (data, _, error) in
                 
                 DispatchQueue.main.async {
                     if let error = error {
                         completion(.failure(error))
                         return
                     } else if let safeData = data {
-                        completion(.success(self.parseJSON(safeData)))
+                        completion(.success(safeData))
                         return
                     }
                 }
@@ -37,19 +36,32 @@ open class ArticleRequest: OnewsArticleProtocol {
         }
     }
     
-    func parseJSON(_ newsData: Data) -> [Article] {
+    public func handleGetArticlesRequest(_ url: String, completion: @escaping FetchArticlesHandler) {
+        
+        self.performNewsAPIRequest(with: url) { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let data):
+                completion(self.parseJSON(data), nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func parseJSON(_ newsData: Data) -> NewsArticleResponse? {
         let decoder = JSONDecoder()
         
         do {
-            let decodedData = try decoder.decode(NewsArticle.self, from: newsData)
-            return decodedData.articles.filter { $0.title != "[Removed]" }
+            let decodedData = try decoder.decode(NewsArticleResponse.self, from: newsData)
+            return decodedData.self
         } catch {
-            return []
+            return nil
         }
     }
 }
 
 public protocol OnewsArticleProtocol {
-    func performGetArticlesRequest(with urlString: String,
-                                   _ completion: @escaping (_ result: Result<[Article], Error>) -> Void)
+    func handleGetArticlesRequest(_ url: String, completion: @escaping (_ result: NewsArticleResponse?, _ error: Error?) -> Void)
 }
