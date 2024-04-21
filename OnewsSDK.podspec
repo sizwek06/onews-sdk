@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "OnewsSDK"
-  spec.version      = "0.3.0"
+  spec.version      = "0.4.0"
   spec.summary      = "The framework will allow the app to grab API mandatory requests details to get news articles."
 
   # This description is used to generate tags and improve search results.
@@ -76,7 +76,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/sizwek06/onews-sdk.git", :tag => "0.3.0" }
+  spec.source       = { :git => "https://github.com/sizwek06/onews-sdk.git", :tag => "0.4.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
